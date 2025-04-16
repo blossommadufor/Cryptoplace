@@ -1,6 +1,6 @@
 // CG-8SxQb6n1KmGCiH9RAK9xNSrF
 
-import { createContext, useState, useEffect } from "react-router-dom";
+import { createContext, useState, useEffect } from "react";
 
 export const CoinContext = createContext();
 
@@ -31,18 +31,18 @@ const CoinContextProvider = (props) => {
 
 
   useEffect(()=>{
-    fetchAllCoin()
+    fetchAllCoin();
   },[currency])
 
   const contextValue = {
-    allcoin, currency, setCurrency
+    allCoin, currency, setCurrency
   };
 
 
   return (
-    <CoinContext.provider value={contextValue}>
+    <CoinContextProvider value={contextValue}>
       {props.children}
-    </CoinContext.provider>
+    </CoinContextProvider>
   );
 };
 
